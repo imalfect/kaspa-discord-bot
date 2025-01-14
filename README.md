@@ -1,48 +1,25 @@
-# Discord Bot Template
-A simple yet organized discord bot template utilizing discord.js and Bun as runtime.
+# Kaspa Discord Bot
+Nicely done helper bot for the official Kaspa discord, it provides stats about the network on the channel list.
 
-## Features
-Here are some of the features the bot template has:
-- Discord Slash Commands
-- Discord Modals
-- Discord Buttons
-- DiscordJS Events
-- Cron Jobs
-- Automatic error handling
+## Supported Stats
+Here are the following stats the bot supports:
+- Hashrate
+- Last block fees
+- Last block reward
+- Next phase (reward reduction)
+- Circulating supply
+- X Followers
+- Discord Members
+- Telegram Members
 
-## Installation
-1. Clone the repository
-2. Install the dependencies
-```$ bun install```
-3. Copy the `.env.example` file to `.env` and fill in the required fields, they're self-explanatory.
-4. *OPTIONAL*: Configure `eslint` and `prettier` to your liking.
-5. Start the bot
-```$ bun start```
+## Key Used libraries
+- [discord.js](https://discord.js.org/)
+- [Kaspa WASM](https://github.com/kaspanet/rusty-kaspa)
+- [cron](https://www.npmjs.com/package/cron)
 
-## Utility Scripts
-- `bun start` - Start the bot
-- `bun dev` - Start the bot in development mode **NOTE: Discord doesn't necessarily like such frequent restarts of the bot, and proceeds to rate limit it, this might not work as well as expected**
-- `bun run reload-commands` - Reload slash commands
-- `bun run delete-commands` - Delete all slash commands
-
-## What are command scopes?
-Commands scopes let you limit the command execution to a specific place, that is:
-- User DMs
-- Guilds
-- Both
-
-If the scope doesn't match the command's scope, the command won't be executed and an error will be thrown instead (See `ScopeMismatchEmbed`).
-To set the scope of a command, you can set it in the command's constructor parameters.
-You can see an example of this in the `ping` command where the scope enum is used.
-
-## How to create a command?
-To create a command, you need to create a new file in the `commands` directory.
-The file should follow a similar pattern to the `ping` command. Define all the necessary variables and methods, create a class with them and export it.
-
-Similar practice follows with modals and buttons.
-
-## Support
-There is no support, I built this template to use in my future projects, it's here if you need a quick start to your discord bot and already have experience with discord.js and basic JavaScript & TypeScript.
+## Code structure, core functionality
+This bot uses [my own template for discord bots](https://github.com/imalfect/discord-bot-template), you can find more information about the file structure there.
+The usage of this template is the reason there are so many files, while the bot itself is quite simple, the template is made to be easily extensible, as it supports buttons, slash commands, discord modals, cronjobs, and so on. This can potentially be used for future features.
 
 ## License
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.

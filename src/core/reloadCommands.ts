@@ -1,4 +1,4 @@
-import type { ExtendedClient } from '@/types/extendedClient.ts';
+import type { ExtendedClient } from '@/types/ExtendedClient.ts';
 import { REST, Routes } from 'discord.js';
 const rest = new REST().setToken(process.env.DISCORD_BOT_TOKEN as string);
 

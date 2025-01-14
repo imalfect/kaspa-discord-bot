@@ -1,4 +1,4 @@
-import type { SlashCommandScope } from '@/types/slashCommandScope.ts';
+import type { SlashCommandScope } from '@/types/SlashCommandScope.ts';
 import {
 	type ChatInputCommandInteraction,
 	SlashCommandBuilder,

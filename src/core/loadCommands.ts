@@ -1,5 +1,5 @@
 import type SlashCommand from '@/classes/SlashCommand.ts';
-import type { ExtendedClient } from '@/types/extendedClient.ts';
+import type { ExtendedClient } from '@/types/ExtendedClient.ts';
 import fs from 'fs';
 import path from 'path';
 

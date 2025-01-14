@@ -1,7 +1,7 @@
 import ScopeMismatchEmbed from '@/embeds/ScopeMismatch.ts';
 import { client } from '@/index.ts';
-import { SlashCommandScope } from '@/types/slashCommandScope.ts';
-import handleInteractionError from '@/util/handleInteractionError.ts';
+import { SlashCommandScope } from '@/types/SlashCommandScope.ts';
+import handleInteractionError from '@/util/discord/handleInteractionError.ts';
 import { type CacheType, ChatInputCommandInteraction } from 'discord.js';
 
 async function commandInteraction(interaction: ChatInputCommandInteraction<CacheType>) {

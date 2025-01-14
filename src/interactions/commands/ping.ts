@@ -1,7 +1,7 @@
 import SlashCommand from '@/classes/SlashCommand.ts';
 import FeelingsSurveyButton from '@/interactions/buttons/feelingsSurvey.ts';
 import HelloButton from '@/interactions/buttons/hello.ts';
-import { SlashCommandScope } from '@/types/slashCommandScope.ts';
+import { SlashCommandScope } from '@/types/SlashCommandScope.ts';
 import {
 	ActionRowBuilder,
 	ButtonBuilder,

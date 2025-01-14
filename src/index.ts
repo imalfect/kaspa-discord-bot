@@ -8,8 +8,7 @@ import loadModals from '@/core/loadModals.ts';
 import reloadCommands from '@/core/reloadCommands.ts';
 import clientReady from '@/handlers/clientReady.ts';
 import interactionCreate from '@/handlers/interactionCreate.ts';
-import '@/types/env.d.ts';
-import type { ExtendedClient } from '@/types/extendedClient.ts';
+import type { ExtendedClient } from '@/types/ExtendedClient.ts';
 import type { CronJob } from 'cron';
 import { ActivityType, Client, Collection, Events, GatewayIntentBits } from 'discord.js';
 import 'modernlog/patch';
@@ -27,10 +26,6 @@ client.modals = new Collection<'string', InteractionModal>();
 client.once(Events.ClientReady, clientReady);
 client.on(Events.InteractionCreate, interactionCreate);
 
-loadCronJobs().then(() => {
-	console.log('Loaded cron jobs');
-});
-
 loadCommands(client).then(() => {
 	console.log('Loaded commands');
 	loadButtons(client).then(() => {
@@ -38,7 +33,10 @@ loadCommands(client).then(() => {
 	});
 	// noinspection JSIgnoredPromiseFromCall
 	reloadCommands(client.commands);
-	client.login(process.env.DISCORD_BOT_TOKEN).then(() => {
+	client.login(process.env.DISCORD_BOT_TOKEN).then(async () => {
+		loadCronJobs().then(() => {
+			console.log('Loaded cron jobs');
+		});
 		client.user?.setActivity(process.env.BOT_STATUS as string, {
 			type: ActivityType.Watching
 		});

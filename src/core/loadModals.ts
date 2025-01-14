@@ -1,5 +1,5 @@
 import type InteractionModal from '@/classes/InteractionModal.ts';
-import type { ExtendedClient } from '@/types/extendedClient.ts';
+import type { ExtendedClient } from '@/types/ExtendedClient.ts';
 import fs from 'fs';
 import path from 'path';
 

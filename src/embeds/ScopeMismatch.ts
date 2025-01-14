@@ -1,4 +1,4 @@
-import { SlashCommandScope } from '@/types/slashCommandScope.ts';
+import { SlashCommandScope } from '@/types/SlashCommandScope.ts';
 import { EmbedBuilder } from 'discord.js';
 
 export default function ScopeMismatch(

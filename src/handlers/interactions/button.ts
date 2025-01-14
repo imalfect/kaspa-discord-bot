@@ -1,5 +1,5 @@
 import { client } from '@/index.ts';
-import handleInteractionError from '@/util/handleInteractionError.ts';
+import handleInteractionError from '@/util/discord/handleInteractionError.ts';
 import { type ButtonInteraction, type CacheType } from 'discord.js';
 
 async function buttonInteraction(interaction: ButtonInteraction<CacheType>) {

@@ -5,6 +5,6 @@ function coffeeCron() {
 }
 
 // Regular cron job that runs every 5 seconds
-const coffeeTime = new CronJob('*/5 * * * * *', coffeeCron, null, true, 'America/Los_Angeles');
+const coffeeTime = new CronJob('*/60 * * * * *', coffeeCron, null, false, 'America/Los_Angeles');
 
 export default coffeeTime;

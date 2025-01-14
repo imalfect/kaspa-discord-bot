@@ -1,5 +1,5 @@
 import { client } from '@/index.ts';
-import handleInteractionError from '@/util/handleInteractionError.ts';
+import handleInteractionError from '@/util/discord/handleInteractionError.ts';
 import { type CacheType, type ModalSubmitInteraction } from 'discord.js';
 
 async function modalInteraction(interaction: ModalSubmitInteraction<CacheType>) {
