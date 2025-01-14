@@ -27,15 +27,15 @@ client.once(Events.ClientReady, clientReady);
 client.on(Events.InteractionCreate, interactionCreate);
 
 loadCommands(client).then(() => {
-	console.log('Loaded commands');
+	console.info('Loaded commands');
 	loadButtons(client).then(() => {
-		console.log('Loaded buttons');
+		console.info('Loaded buttons');
 	});
 	// noinspection JSIgnoredPromiseFromCall
 	reloadCommands(client.commands);
 	client.login(process.env.DISCORD_BOT_TOKEN).then(async () => {
 		loadCronJobs().then(() => {
-			console.log('Loaded cron jobs');
+			console.info('Loaded cron jobs');
 		});
 		client.user?.setActivity(process.env.BOT_STATUS as string, {
 			type: ActivityType.Watching
@@ -44,5 +44,5 @@ loadCommands(client).then(() => {
 });
 
 loadModals(client).then(() => {
-	console.log('Loaded modals');
+	console.info('Loaded modals');
 });

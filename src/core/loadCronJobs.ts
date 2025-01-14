@@ -14,7 +14,7 @@ async function loadCronJobs() {
 			let filename = path.parse(file).name;
 			cronJobs.set(filename, cronjob);
 			cronjob.start();
-			console.info(`Loaded and started cronjob: ${filename}`);
+			console.log(`Loaded and started cronjob: ${filename}`);
 		} else {
 			console.warn(`The file at ${filePath} does not export a CronJob instance. Skipping.`);
 		}

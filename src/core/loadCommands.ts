@@ -13,7 +13,7 @@ async function loadCommands(client: ExtendedClient) {
 		if (command.builder && command.execute && command.name) {
 			command = command as SlashCommand;
 			client.commands.set(command.name, command);
-			console.info(`Loaded command: ${command.name}`);
+			console.log(`Loaded command: ${command.name}`);
 		} else {
 			console.warn(
 				`The command at ${filePath} is missing a required "builder", "execute" or "name" property.`

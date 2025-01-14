@@ -15,7 +15,7 @@ async function reloadCommands(commands: ExtendedClient['commands']) {
 				body: commands.map((command) => command.builder.toJSON())
 			}
 		)) as unknown[];
-		console.log(`Successfully reloaded ${data.length} application (/) commands.`);
+		console.info(`Successfully reloaded ${data.length} application (/) commands.`);
 	} catch (error) {
 		console.error(error);
 	}

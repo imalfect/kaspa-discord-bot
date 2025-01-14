@@ -13,7 +13,7 @@ async function loadButtons(client: ExtendedClient) {
 		if (button.builder && button.execute && button.id) {
 			button = button as InteractionButton;
 			client.buttons.set(button.id, button);
-			console.info(`Loaded button: ${button.id}`);
+			console.log(`Loaded button: ${button.id}`);
 		} else {
 			console.warn(
 				`The button at ${filePath} is missing a required "builder", "execute" or "id" property.`

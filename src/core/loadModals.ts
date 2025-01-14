@@ -13,7 +13,7 @@ async function loadButtons(client: ExtendedClient) {
 		if (modal.builder && modal.execute && modal.id) {
 			modal = modal as InteractionModal;
 			client.modals.set(modal.id, modal);
-			console.info(`Loaded modal: ${modal.id}`);
+			console.log(`Loaded modal: ${modal.id}`);
 		} else {
 			console.warn(
 				`The modal at ${filePath} is missing a required "builder", "execute" or "id" property.`
