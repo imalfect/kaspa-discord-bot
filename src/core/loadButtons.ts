@@ -5,7 +5,9 @@ import path from 'path';
 
 async function loadButtons(client: ExtendedClient) {
 	const buttonsPath = path.join(__dirname, '../interactions/', 'buttons');
-	const buttonsFiles = fs.readdirSync(buttonsPath).filter((file) => file.endsWith('.ts'));
+	const buttonsFiles = fs
+		.readdirSync(buttonsPath)
+		.filter((file) => file.endsWith('.ts') && !file.startsWith('_'));
 	for (const file of buttonsFiles) {
 		const filePath = path.join(buttonsPath, file);
 		let button = await import(filePath);

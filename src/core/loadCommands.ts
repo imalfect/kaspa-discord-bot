@@ -5,7 +5,9 @@ import path from 'path';
 
 async function loadCommands(client: ExtendedClient) {
 	const commandsPath = path.join(__dirname, '../interactions/', 'commands');
-	const commandFiles = fs.readdirSync(commandsPath).filter((file) => file.endsWith('.ts'));
+	const commandFiles = fs
+		.readdirSync(commandsPath)
+		.filter((file) => file.endsWith('.ts') && !file.startsWith('_'));
 	for (const file of commandFiles) {
 		const filePath = path.join(commandsPath, file);
 		let command = await import(filePath);

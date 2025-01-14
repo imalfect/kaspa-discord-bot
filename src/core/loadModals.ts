@@ -5,7 +5,9 @@ import path from 'path';
 
 async function loadButtons(client: ExtendedClient) {
 	const modalsPath = path.join(__dirname, '../interactions/', 'modals');
-	const modalsFiles = fs.readdirSync(modalsPath).filter((file) => file.endsWith('.ts'));
+	const modalsFiles = fs
+		.readdirSync(modalsPath)
+		.filter((file) => file.endsWith('.ts') && !file.startsWith('_'));
 	for (const file of modalsFiles) {
 		const filePath = path.join(modalsPath, file);
 		let modal = await import(filePath);

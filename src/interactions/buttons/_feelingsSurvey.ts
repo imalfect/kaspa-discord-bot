@@ -1,5 +1,5 @@
 import InteractionButton from '@/classes/InteractionButton.ts';
-import feelingsModal from '@/interactions/modals/feelingsModal.ts';
+import feelingsModal from '@/interactions/modals/_feelingsModal.ts';
 import { ButtonBuilder, type ButtonInteraction, ButtonStyle } from 'discord.js';
 
 const buttonId = 'feelingsSurvey';
