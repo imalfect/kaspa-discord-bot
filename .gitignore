@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+src/db/nyadb
+.env
+bun.lockb
+/src/db/nya-invites-db/
