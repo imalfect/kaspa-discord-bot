@@ -15,6 +15,10 @@ import { CronJob } from 'cron';
 
 async function channelNetworkStatsCron() {
 	try {
+		if (!kaspa.isConnected) {
+			console.warn('Kaspa node is not connected, skipping network stats');
+			return;
+		}
 		const hashrate = await getNetworkHashrate().catch(handleStatsRequestError);
 		const supply = await getCirculatingSupply().catch(handleStatsRequestError);
 		const dagInfo = await kaspa.getBlockDagInfo();
