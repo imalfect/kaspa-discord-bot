@@ -1,4 +1,5 @@
 import type { BlockRewardReductionRecord } from '@/kaspa/types.ts';
+export const STANDARD_TRANSACTION_MASS = 2036;
 export const DEFLATIONARY_TABLE: BlockRewardReductionRecord[] = [
 	{
 		daaStart: 0,

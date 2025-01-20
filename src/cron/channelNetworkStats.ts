@@ -3,12 +3,14 @@ import getBlockSummary from '@/kaspa/function/getBlockSummary.ts';
 import getCirculatingSupply from '@/kaspa/function/getCirculatingSupply.ts';
 import getNetworkHashrate from '@/kaspa/function/getNetworkHashrate.ts';
 import getNetworkPhaseStatus from '@/kaspa/function/getNetworkPhaseStatus.ts';
+import getStandardTransactionFee from '@/kaspa/function/getStandardTransactionFee.ts';
 import { StatsChannel } from '@/types/StatsChannel.ts';
 import updateStatsChannel from '@/util/discord/updateStatsChannel.ts';
 import handleStatsRequestError from '@/util/handleStatsRequestError.ts';
 import formatHashrate from '@/util/kaspa/formatHashrate.ts';
 import sompiToKas from '@/util/kaspa/sompiToKas.ts';
 import { formatNumber } from '@/util/numberFormatter.ts';
+import Big from 'big.js';
 import { CronJob } from 'cron';
 
 async function channelNetworkStatsCron() {
@@ -18,7 +20,7 @@ async function channelNetworkStatsCron() {
 		const dagInfo = await kaspa.getBlockDagInfo();
 		const blockSummary = await getBlockSummary(dagInfo.sink).catch(handleStatsRequestError);
 		const phaseStatus = getNetworkPhaseStatus(dagInfo.virtualDaaScore);
-
+		const standardTransactionFee = await getStandardTransactionFee();
 		if (hashrate !== null)
 			await updateStatsChannel(StatsChannel.Hashrate, `hashrate: ${formatHashrate(hashrate)}`);
 
@@ -39,11 +41,22 @@ async function channelNetworkStatsCron() {
 				`tps: ${formatNumber(blockSummary.transactionsCount, 0)} (${formatNumber(sompiToKas(blockSummary.totalOutputValue))} KAS/s)`
 			);
 		}
-
 		await updateStatsChannel(
 			StatsChannel.NextPhase,
 			`next-phase: ${phaseStatus.nextPhaseStart ?? 'Mars landing 🪐'}`
 		);
+
+		if (standardTransactionFee !== null) {
+			await updateStatsChannel(
+				StatsChannel.TransactionFee,
+				`tx-fee: ${
+					new Big(standardTransactionFee).gte(1e5)
+						? formatNumber(sompiToKas(standardTransactionFee), 4).concat(' KAS')
+						: formatNumber(standardTransactionFee, 0).concat(' dwork')
+				}`
+			);
+		}
+		console.debug('set');
 	} catch (e) {
 		console.error(`An error encountered while running channelNetworkStatsCron: ${e}`);
 	}

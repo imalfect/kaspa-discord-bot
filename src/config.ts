@@ -6,6 +6,7 @@ export const statsChannelIds: { [key in StatsChannel]: string } = {
 	[StatsChannel.Hashrate]: '1327414213521571870',
 	[StatsChannel.BlockReward]: '1328515610161713183',
 	[StatsChannel.BlockFees]: '1328515568680177735',
+	[StatsChannel.TransactionFee]: '1331011727915094156',
 	[StatsChannel.NextPhase]: '1328515515685273723',
 	[StatsChannel.Supply]: '1327414319717154997',
 	[StatsChannel.TPS]: '1327986228192084048',
