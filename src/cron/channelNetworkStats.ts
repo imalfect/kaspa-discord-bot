@@ -42,7 +42,7 @@ async function channelNetworkStatsCron() {
 			);
 			await updateStatsChannel(
 				StatsChannel.TPS,
-				`tps: ${formatNumber(blockSummary.transactionsCount, 0)} (${formatNumber(sompiToKas(blockSummary.totalOutputValue))} KAS/s)`
+				`TPS: ${formatNumber(blockSummary.transactionsCount, 0)} (${formatNumber(sompiToKas(blockSummary.totalOutputValue))} KAS/s)`
 			);
 		}
 		await updateStatsChannel(
