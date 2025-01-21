@@ -1,16 +1,17 @@
+// noinspection JSIgnoredPromiseFromCall
+
 import type InteractionButton from '@/classes/InteractionButton.ts';
 import type InteractionModal from '@/classes/InteractionModal.ts';
 import type SlashCommand from '@/classes/SlashCommand.ts';
 import loadButtons from '@/core/loadButtons.ts';
 import loadCommands from '@/core/loadCommands.ts';
-import loadCronJobs from '@/core/loadCronJobs.ts';
 import loadModals from '@/core/loadModals.ts';
 import reloadCommands from '@/core/reloadCommands.ts';
 import clientReady from '@/handlers/clientReady.ts';
 import interactionCreate from '@/handlers/interactionCreate.ts';
 import type { ExtendedClient } from '@/types/ExtendedClient.ts';
 import type { CronJob } from 'cron';
-import { ActivityType, Client, Collection, Events, GatewayIntentBits } from 'discord.js';
+import { Client, Collection, Events, GatewayIntentBits } from 'discord.js';
 import 'modernlog/patch';
 
 export const client: ExtendedClient = new Client({
@@ -31,16 +32,8 @@ loadCommands(client).then(() => {
 	loadButtons(client).then(() => {
 		console.info('Loaded buttons');
 	});
-	// noinspection JSIgnoredPromiseFromCall
 	reloadCommands(client.commands);
-	client.login(process.env.DISCORD_BOT_TOKEN).then(async () => {
-		loadCronJobs().then(() => {
-			console.info('Loaded cron jobs');
-		});
-		client.user?.setActivity(process.env.BOT_STATUS as string, {
-			type: ActivityType.Watching
-		});
-	});
+	client.login(process.env.DISCORD_BOT_TOKEN);
 });
 
 loadModals(client).then(() => {
