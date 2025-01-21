@@ -2,17 +2,17 @@
 import { StatsChannel } from '@/types/StatsChannel.ts';
 
 export const statsChannelIds: { [key in StatsChannel]: string } = {
-	[StatsChannel.Price]: '1328783776846970973',
-	[StatsChannel.Hashrate]: '1327414213521571870',
-	[StatsChannel.BlockReward]: '1328515610161713183',
-	[StatsChannel.BlockFees]: '1328515568680177735',
-	[StatsChannel.TransactionFee]: '1331011727915094156',
-	[StatsChannel.NextPhase]: '1328515515685273723',
-	[StatsChannel.Supply]: '1327414319717154997',
-	[StatsChannel.TPS]: '1327986228192084048',
-	[StatsChannel.XFollowers]: '1327414370493530213',
-	[StatsChannel.DiscordMembers]: '1327414393109086341',
-	[StatsChannel.TelegramMembers]: '1327414418417516655'
+	[StatsChannel.Price]: '1046804251948617810',
+	[StatsChannel.Hashrate]: '1046804284504809542',
+	[StatsChannel.BlockReward]: '1047470565910380594',
+	[StatsChannel.BlockFees]: '1047470595241168996',
+	[StatsChannel.TransactionFee]: '1046804311864258652',
+	[StatsChannel.NextPhase]: '1047470535019352084',
+	[StatsChannel.Supply]: '1046804335947952158',
+	[StatsChannel.TPS]: '1046804371331088384',
+	[StatsChannel.XFollowers]: '1046804400481513555',
+	[StatsChannel.DiscordMembers]: '1331311810275442791',
+	[StatsChannel.TelegramMembers]: '1331311833516216441'
 };
 
 export const priceCoinId = 'kaspa';
