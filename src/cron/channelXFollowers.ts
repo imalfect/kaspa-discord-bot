@@ -13,7 +13,10 @@ async function channelXFollowersCron() {
 		const xFollowers = await getUserFollowersCount(twitterHandle).catch(handleStatsRequestError);
 
 		if (xFollowers !== null)
-			await updateStatsChannel(StatsChannel.XFollowers, `x: ${formatNumber(xFollowers, 0)}`);
+			await updateStatsChannel(
+				StatsChannel.XFollowers,
+				`X (ex-Twitter): ${formatNumber(xFollowers, 0)}`
+			);
 	} catch (e) {
 		console.error(`An error encountered while running channelXFollowersCron: ${e}`);
 	}
