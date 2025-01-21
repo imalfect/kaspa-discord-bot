@@ -26,7 +26,7 @@ const channelXFollowers = new CronJob(
 	true,
 	'America/Los_Angeles',
 	null,
-	null,
+	false,
 	null,
 	null,
 	true

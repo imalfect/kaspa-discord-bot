@@ -26,7 +26,7 @@ const channelPrice = new CronJob(
 	false,
 	'America/Los_Angeles',
 	null,
-	null,
+	false,
 	null,
 	null,
 	true
