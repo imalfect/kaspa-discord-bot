@@ -4,7 +4,6 @@ import sanitizeMessage from '@/util/sanitizeMessage.ts';
 import { Message, type OmitPartialGroupDMChannel } from 'discord.js';
 
 async function messageCreate(message: OmitPartialGroupDMChannel<Message<boolean>>) {
-	console.log(message.content);
 	// Ignore messages from bots
 	if (message.author.bot) return;
 	if (!message.inGuild()) return;
