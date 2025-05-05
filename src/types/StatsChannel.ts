@@ -9,5 +9,6 @@ export enum StatsChannel {
 	TPS = 'tps',
 	XFollowers = 'xFollowers',
 	DiscordMembers = 'discordMembers',
-	TelegramMembers = 'telegramMembers'
+	TelegramMembers = 'telegramMembers',
+	CrescendoCountdown = 'crescendoCountdown'
 }

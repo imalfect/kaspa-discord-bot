@@ -14,11 +14,13 @@ import { ScamClassifier } from '@/scam-classification';
 import type { ExtendedClient } from '@/types/ExtendedClient.ts';
 import type { CronJob } from 'cron';
 import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { Client, Collection, Events, GatewayIntentBits } from 'discord.js';
 import 'modernlog/patch';
 
 dayjs.extend(relativeTime);
+dayjs.extend(duration);
 
 export const client: ExtendedClient = new Client({
 	intents: [

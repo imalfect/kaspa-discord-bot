@@ -12,7 +12,8 @@ export const statsChannelIds: { [key in StatsChannel]: string } = {
 	[StatsChannel.TPS]: '1046804371331088384',
 	[StatsChannel.XFollowers]: '1046804400481513555',
 	[StatsChannel.DiscordMembers]: '1331311810275442791',
-	[StatsChannel.TelegramMembers]: '1331311833516216441'
+	[StatsChannel.TelegramMembers]: '1331311833516216441',
+	[StatsChannel.CrescendoCountdown]: '1368927211146575903'
 };
 
 export const priceCoinId = 'kaspa';
