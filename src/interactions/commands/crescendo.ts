@@ -9,7 +9,7 @@ const commandConfig = new SlashCommandBuilder()
 	.setName(commandName)
 	.setDescription('Check the time before the Crescendo Hard Fork activation.');
 
-async function interactionHandler(interaction: ChatInputCommandInteraction) {
+export async function interactionHandler(interaction: ChatInputCommandInteraction) {
 	const remaining = await secondsUntilCrescendo();
 	const currentTime = dayjs();
 	const targetTime = currentTime.add(remaining, 'seconds');
