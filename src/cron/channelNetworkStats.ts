@@ -38,7 +38,7 @@ async function channelNetworkStatsCron() {
 			);
 			await updateStatsChannel(
 				StatsChannel.BlockFees,
-				`last-fees: ${formatNumber(sompiToKas(blockSummary.blockReward) - phaseStatus.currentPhase.rewardPerDaa)} KAS`
+				`last-fees: ${formatNumber(new Big(sompiToKas(blockSummary.blockReward)).minus(phaseStatus.currentPhase.rewardPerDaa).toFixed())} KAS`
 			);
 			await updateStatsChannel(
 				StatsChannel.TPS,
