@@ -1,7 +1,9 @@
 // Removing gifs, links and mentions from messages
 import * as linkify from 'linkifyjs';
+import removeMd from 'remove-markdown';
 export default function sanitizeMessage(message: string) {
 	// Remove links (should also effectively remove gifs)
+	message = removeMd(message);
 	const links = linkify.find(message);
 	if (links.length) {
 		for (const link of links) {
