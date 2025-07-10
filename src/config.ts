@@ -20,6 +20,6 @@ export const priceCoinId = 'kaspa';
 
 export const priceCurrency = 'usd';
 
-export const twitterHandle = 'kaspacurrency';
+export const twitterHandle = 'kaspaunchained';
 
 export const telegramChannel = '@kaspaenglish';
