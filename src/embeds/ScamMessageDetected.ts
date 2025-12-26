@@ -52,4 +52,5 @@ export default function ScamMessageDetected(details: {
 		// red for very high confidence
 		embed.setColor(0xff0000);
 	}
+	return embed;
 }
