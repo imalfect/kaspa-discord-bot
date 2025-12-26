@@ -1,6 +1,6 @@
+import sanitizeMessage from '@/util/sanitizeMessage';
 import dayjs from 'dayjs';
 import { EmbedBuilder } from 'discord.js';
-
 export default function ScamMessageDetected(details: {
 	message: string;
 	confidence: number;
@@ -8,12 +8,14 @@ export default function ScamMessageDetected(details: {
 	joinTimestamp: number;
 	timeTaken: number;
 }) {
-	return new EmbedBuilder()
-		.setColor(0xff0000)
+	const embed = new EmbedBuilder()
 		.setTitle('🛑 Potential Scam Message Detected')
 		.setDescription(
 			`
+		Original Message:
 		\`\`\`${details.message}\`\`\`
+		Sanitized Message:
+		\`\`\`${sanitizeMessage(details.message)}\`\`\`
 		`
 		)
 		.addFields([
@@ -40,4 +42,14 @@ export default function ScamMessageDetected(details: {
 		])
 		.setTimestamp()
 		.setFooter({ text: process.env.BOT_NAME as string });
+	if (details.confidence < 0.75) {
+		// yellow for medium confidence
+		embed.setColor(0xffa500);
+	} else if (details.confidence < 0.92) {
+		// orange for high confidence
+		embed.setColor(0xff8c00);
+	} else {
+		// red for very high confidence
+		embed.setColor(0xff0000);
+	}
 }
