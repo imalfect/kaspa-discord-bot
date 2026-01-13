@@ -1,4 +1,4 @@
-import sanitizeMessage from '@/util/sanitizeMessage';
+import { sanitizeMessage } from '@imalfect/scamaway-sanitizer';
 import dayjs from 'dayjs';
 import { EmbedBuilder } from 'discord.js';
 export default function ScamMessageDetected(details: {

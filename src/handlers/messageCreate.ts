@@ -1,6 +1,6 @@
 import ScamMessageDetected from '@/embeds/ScamMessageDetected.ts';
 import { scamClassifier } from '@/index.ts';
-import sanitizeMessage from '@/util/sanitizeMessage.ts';
+import { sanitizeMessage } from '@imalfect/scamaway-sanitizer';
 import { Message, type OmitPartialGroupDMChannel } from 'discord.js';
 
 async function messageCreate(message: OmitPartialGroupDMChannel<Message<boolean>>) {
