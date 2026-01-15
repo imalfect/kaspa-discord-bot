@@ -1,6 +1,5 @@
 import ScamMessageDetected from '@/embeds/ScamMessageDetected.ts';
-import { scamClassifier } from '@/index.ts';
-import { sanitizeMessage } from '@imalfect/scamaway-sanitizer';
+import { messageSanitizer, scamClassifier } from '@/index.ts';
 import { Message, type OmitPartialGroupDMChannel } from 'discord.js';
 
 async function messageCreate(message: OmitPartialGroupDMChannel<Message<boolean>>) {
@@ -8,7 +7,7 @@ async function messageCreate(message: OmitPartialGroupDMChannel<Message<boolean>
 	if (message.author.bot) return;
 	if (!message.inGuild()) return;
 	// Process the content
-	const sanitizedMessage = sanitizeMessage(message.content);
+	const sanitizedMessage = messageSanitizer.sanitize(message.content);
 	if (!sanitizedMessage) {
 		// Message empty, likely only an attachment/mention/link
 		return;

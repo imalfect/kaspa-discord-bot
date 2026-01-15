@@ -1,6 +1,6 @@
-import { sanitizeMessage } from '@imalfect/scamaway-sanitizer';
 import dayjs from 'dayjs';
 import { EmbedBuilder } from 'discord.js';
+import { messageSanitizer } from '..';
 export default function ScamMessageDetected(details: {
 	message: string;
 	confidence: number;
@@ -15,7 +15,7 @@ export default function ScamMessageDetected(details: {
 		Original Message:
 		\`\`\`${details.message}\`\`\`
 		Sanitized Message:
-		\`\`\`${sanitizeMessage(details.message)}\`\`\`
+		\`\`\`${messageSanitizer.sanitize(details.message)}\`\`\`
 		`
 		)
 		.addFields([
