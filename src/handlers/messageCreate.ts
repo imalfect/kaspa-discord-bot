@@ -8,7 +8,15 @@ async function messageCreate(message: OmitPartialGroupDMChannel<Message<boolean>
 	if (!message.inGuild()) return;
 	// Process the content
 	const sanitizedMessage = messageSanitizer.sanitize(message.content);
-	if (!sanitizedMessage) {
+	const messageWithoutReplacors = sanitizedMessage
+		.replaceAll('[LINK_TRUSTED]', '')
+		.replaceAll('[LINK_EXTERNAL]', '')
+		.trim();
+	if (!sanitizedMessage || !messageWithoutReplacors) {
+		// Message empty, likely only an attachment/mention/link
+		return;
+	}
+	if (!sanitizedMessage || !messageWithoutReplacors) {
 		// Message empty, likely only an attachment/mention/link
 		return;
 	}
