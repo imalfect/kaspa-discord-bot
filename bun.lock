@@ -5,7 +5,7 @@
     "": {
       "name": "kaspa-discord-bot",
       "dependencies": {
-        "@imalfect/scamaway-sanitizer": "^1.0.5",
+        "@imalfect/scamaway-sanitizer": "^1.0.6",
         "big.js": "^6.2.2",
         "chalk": "^5.4.1",
         "cron": "^3.2.1",
@@ -76,7 +76,7 @@
 
     "@humanwhocodes/retry": ["@humanwhocodes/retry@0.4.3", "", {}, "sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ=="],
 
-    "@imalfect/scamaway-sanitizer": ["@imalfect/scamaway-sanitizer@1.0.5", "https://npm.pkg.github.com/download/@imalfect/scamaway-sanitizer/1.0.5/799706fcf46dcd09bb71ae573119f05ba6348230", { "dependencies": { "discord-markdown-parser": "^1.3.1", "linkifyjs": "^4.3.2", "node-html-parser": "^7.0.2", "simple-markdown": "^0.7.3", "unhomoglyph": "^1.0.6" }, "peerDependencies": { "typescript": "^5" } }, "sha512-42X6Qad6JnCh1ozyB+0ZZOA2LKZrdYcLVa2Jsx53jqcvB43Qa4XZq13TBXQnVK2gGiOzm2Phjv3nUP76Pvmt2g=="],
+    "@imalfect/scamaway-sanitizer": ["@imalfect/scamaway-sanitizer@1.0.6", "https://npm.pkg.github.com/download/@imalfect/scamaway-sanitizer/1.0.6/e3d7daafb0ebffcce15af37bdc0f43c7b99855cb", { "dependencies": { "confusables": "^1.1.1", "discord-markdown-parser": "^1.3.1", "linkifyjs": "^4.3.2", "node-html-parser": "^7.0.2", "simple-markdown": "^0.7.3", "unhomoglyph": "^1.0.6" }, "peerDependencies": { "typescript": "^5" } }, "sha512-qvGRp0Impnq31+p8kB3atSyWrXQ5Vz9aYhIrAsKMDuhpjDlj54B9MD8Cd2A3IfLhUKUpL8NdVZptGrDAwtln7Q=="],
 
     "@mongodb-js/saslprep": ["@mongodb-js/saslprep@1.4.4", "", { "dependencies": { "sparse-bitfield": "^3.0.3" } }, "sha512-p7X/ytJDIdwUfFL/CLOhKgdfJe1Fa8uw9seJYvdOmnP9JBWGWHW69HkOixXS6Wy9yvGf1MbhcS6lVmrhy4jm2g=="],
 
@@ -189,6 +189,8 @@
     "color-name": ["color-name@1.1.4", "", {}, "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="],
 
     "concat-map": ["concat-map@0.0.1", "", {}, "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="],
+
+    "confusables": ["confusables@1.1.1", "", {}, "sha512-BzFtzUrufackm00Wb2zvrZV0ItRqPdWaUprU5FXHeZiJRrOWxGmXmQl/muGTF9EQl+MdBXz+Irk99meskGZmXw=="],
 
     "corser": ["corser@2.0.1", "", {}, "sha512-utCYNzRSQIZNPIcGZdQc92UVJYAhtGAteCFg0yRaFm8f0P+CPtyGyHXJcGXnffjCybUCEx3FQ2G7U3/o9eIkVQ=="],
 
