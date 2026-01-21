@@ -9,10 +9,7 @@ import loadModals from '@/core/loadModals.ts';
 import reloadCommands from '@/core/reloadCommands.ts';
 import clientReady from '@/handlers/clientReady.ts';
 import interactionCreate from '@/handlers/interactionCreate.ts';
-import messageCreate from '@/handlers/messageCreate.ts';
-import { ScamClassifier } from '@/scam-classification';
 import type { ExtendedClient } from '@/types/ExtendedClient.ts';
-import { MessageSanitizer } from '@imalfect/scamaway-sanitizer';
 import type { CronJob } from 'cron';
 import dayjs from 'dayjs';
 import duration from 'dayjs/plugin/duration';
@@ -24,48 +21,17 @@ dayjs.extend(relativeTime);
 dayjs.extend(duration);
 
 export const client: ExtendedClient = new Client({
-	intents: [
-		GatewayIntentBits.Guilds,
-		GatewayIntentBits.GuildMessages,
-		GatewayIntentBits.MessageContent
-	]
+	intents: [GatewayIntentBits.Guilds]
 }) as ExtendedClient;
 
 export const cronJobs = new Map<string, CronJob>();
 
-export const scamClassifier = new ScamClassifier(process.env.SCAM_CLASSIFIER_API_URL as string);
-export const messageSanitizer = new MessageSanitizer(
-	[
-		'github.com',
-		'tangem.com',
-		'community.tangem.com',
-		'kalshi.com',
-		'help.kalshi.com',
-		'base.app',
-		'join.base.app',
-		'guild.xyz',
-		'opensea.io',
-		'support.opensea.io',
-		'support.metamask.io',
-		'uniswap.org',
-		'mantle.xyz',
-		'hyperliquid.xyz',
-		'app.hyperliquid.xyz',
-		'hyperfoundation.org',
-		'base.org',
-		'docs.base.org',
-		'community.tangem.com'
-	],
-	'[LINK_TRUSTED]',
-	'[LINK_EXTERNAL]'
-);
 client.commands = new Collection<'string', SlashCommand>();
 client.buttons = new Collection<'string', InteractionButton>();
 client.modals = new Collection<'string', InteractionModal>();
 
 client.once(Events.ClientReady, clientReady);
 client.on(Events.InteractionCreate, interactionCreate);
-client.on(Events.MessageCreate, messageCreate);
 
 loadCommands(client).then(() => {
 	console.info('Loaded commands');

@@ -31,7 +31,6 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "@imalfect/scamaway-sanitizer": "^1.0.6",
     "big.js": "^6.2.2",
     "chalk": "^5.4.1",
     "cron": "^3.2.1",
